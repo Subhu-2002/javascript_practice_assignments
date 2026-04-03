@@ -1,0 +1,68 @@
+<!-- 
+ 5. Change Image on Click 
+Description: Switch image when clicked.
+Practice: src
+ -->
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Change Image</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+      body {
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .box {
+        display: flex;
+        align-items: center;
+        gap: 32px;
+        justify-content: center;
+        flex-direction: column;
+      }
+      .box div {
+        display: flex;
+      }
+      img {
+        border-radius: 8px;
+      }
+      input {
+        padding: 12px 16px;
+        font-size: 18px;
+        border-radius: 4px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">
+      <div>
+        <img src="./assets/image1.png" alt="" id="image" />
+      </div>
+      <input type="button" value="Switch Image" onclick="switchImage()" />
+    </div>
+
+    <script>
+      let isSwitched = false;
+      function switchImage() {
+        if (isSwitched) {
+          let img = document.getElementById("image");
+          img.setAttribute("src", "./assets/image1.png");
+          isSwitched = false;
+        } else {
+          let img = document.getElementById("image");
+          img.setAttribute("src", "./assets/image2.png");
+          isSwitched = true;
+        }
+      }
+    </script>
+  </body>
+</html>

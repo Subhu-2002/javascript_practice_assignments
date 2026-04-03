@@ -1,0 +1,87 @@
+<!-- 
+ Pattern: 2 letters + 2 digits + year + 7 digits
+ Example : MH12 20110012345
+  -->
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Driving License Validation</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .box {
+        display: flex;
+        gap: 32px;
+        align-items: center;
+        flex-direction: column;
+        justify-content: center;
+      }
+      .box input {
+        padding: 12px 16px;
+        font-size: 18px;
+        border-radius: 4px;
+        margin-right: 12px;
+      }
+      span {
+        text-align: left;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">
+      <h1>Validate License Number</h1>
+      <div>
+        <input
+          type="text"
+          id="inputBox"
+          placeholder="Enter License Number"
+          onkeyup="validate(this.value)"
+        />
+        <span id="validate"></span>
+      </div>
+    </div>
+
+    <script>
+      let span = document.getElementById("validate");
+      function validate(str) {
+        let isValid = true;
+        if (str.length != 15) {
+          isValid = false;
+        } else {
+          if (str[0] < "A" || str[0] > "Z" || str[1] < "A" || str[1] > "Z") {
+            isValid = false;
+          } else {
+            for (let i = 2; i < str.length; i++) {
+              if (str[i] < "0" || str[i] > "9") {
+                isValid = false;
+                break;
+              }
+            }
+          }
+        }
+
+        if (isValid) {
+          span.innerHTML = "Valid Number";
+          span.style.color = "green";
+          span.style.fontStyle = "italic";
+        } else {
+          span.innerHTML = "Not Valid";
+          span.style.color = "red";
+          span.style.fontStyle = "italic";
+        }
+      }
+    </script>
+  </body>
+</html>

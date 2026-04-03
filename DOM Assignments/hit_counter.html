@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hit Counter</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .container {
+        width: 20%;
+        padding: 32px;
+        border-radius: 8px;
+        min-height: 200px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .box {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 24px;
+      }
+    </style>
+  </head>
+  <body onload="loadData()">
+    <div class="container">
+      <div class="box" id="countBox"></div>
+    </div>
+
+    <script>
+      function loadData() {
+        let counter = 0;
+        let box = document.getElementById("countBox");
+        let label = document.createElement("label");
+        label.innerHTML = 0;
+        label.style.fontSize = "48px";
+        label.style.fontWeight = "bold";
+        label.style.padding = "24px";
+
+        let btnDiv = document.createElement("div");
+        btnDiv.style.display = "flex";
+        btnDiv.style.width = "100%";
+
+        let hitBtn = document.createElement("input");
+        hitBtn.setAttribute("type", "button");
+        hitBtn.setAttribute("value", "Hit Button");
+        hitBtn.style.padding = "16px 32px";
+        hitBtn.style.borderRadius = "6px";
+        hitBtn.style.fontSize = "20px";
+        hitBtn.style.fontWeight = "500";
+        hitBtn.style.border = "1px solid grey";
+
+        let resetBtn = document.createElement("input");
+        resetBtn.setAttribute("type", "button");
+        resetBtn.setAttribute("value", "Reset Counter");
+        resetBtn.style.padding = "16px 32px";
+        resetBtn.style.borderRadius = "6px";
+        resetBtn.style.fontSize = "20px";
+        resetBtn.style.fontWeight = "500";
+        resetBtn.style.border = "1px solid grey";
+
+        hitBtn.addEventListener("click", function () {
+          counter++;
+          label.innerHTML = counter;
+        });
+
+        resetBtn.addEventListener("click", function () {
+          counter = 0;
+          label.innerHTML - counter;
+        });
+
+        divBtn.appendChild(label);
+        divBtn.appendChild(hitBtn);
+        box.appendChild(divBtn);
+      }
+    </script>
+  </body>
+</html>

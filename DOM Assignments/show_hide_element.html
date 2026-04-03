@@ -1,0 +1,71 @@
+<!-- 
+ 3. Show/Hide Element
+Description: Toggle visibility of a div.
+Practice: style.display
+ -->
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>show-hide-element</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+      body {
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .box {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 32px;
+      }
+      .innerBox {
+        width: 172px;
+        height: 172px;
+        background-color: violet;
+        border-radius: 12px;
+      }
+      .btns {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 32px;
+      }
+      .btns input {
+        padding: 12px 24px;
+        font-size: 18px;
+        border-radius: 6px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">
+      <div class="innerBox" id="innerBox"></div>
+
+      <div class="btns">
+        <input type="button" value="Show" onclick="show()" />
+        <input type="button" value="Hide" onclick="hide()" />
+      </div>
+    </div>
+
+    <script>
+      let box = document.getElementById("innerBox");
+      function show() {
+        box.style.visibility = "visible";
+      }
+      function hide() {
+        box.style.visibility = "hidden";
+      }
+    </script>
+  </body>
+</html>

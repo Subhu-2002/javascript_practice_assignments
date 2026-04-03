@@ -1,0 +1,71 @@
+<!-- 
+ 1. Change Text on Button Click
+Description: Change paragraph text when a button is clicked.
+Practice: getElementById, innerText
+-->
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Change Text</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .box {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        width: 25%;
+        gap: 42px;
+        min-height: 120px;
+      }
+
+      .box p {
+        text-align: center;
+        font-size: 20px;
+      }
+
+      .box input {
+        padding: 12px 24px;
+        font-size: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">
+      <p id="para">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum, enim cum
+        ipsum iure temporibus maiores sit vel quidem saepe cumque iste. Earum
+        obcaecati consequuntur voluptate cumque beatae mollitia officiis, quae
+        id esse eos distinctio culpa.
+      </p>
+      <input
+        type="button"
+        value="click to change"
+        id="changeTextBtn"
+        onclick="changeText()"
+      />
+    </div>
+
+    <script>
+            function changeText(){
+                let p = document.getElementById("para");
+                p.innerHTML = "A ducimus mollitia, veniam repudiandae modi, dolorem similique quisquam quos voluptatem vel temporibus maxime molestias odio magnam est autem nam quia itaque ab doloribus libero saepe! Dolorem tempore pariatur voluptate. Provident, repudiandae quas. Officia?"
+            }
+    </script>
+  </body>
+</html>

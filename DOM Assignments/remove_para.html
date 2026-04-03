@@ -1,0 +1,66 @@
+<!-- 
+ 8. Remove Element 
+Description: Remove a paragraph on button click
+ -->
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Remove Element</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .box {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 42px;
+        padding: 32px;
+        flex-direction: column;
+      }
+      .box p {
+        width: 720px;
+        min-height: 120px;
+        border: 1px solid #000;
+        border-radius: 6px;
+        font-size: 18px;
+        text-align: center;
+        padding: 16px;
+      }
+      .box input {
+        padding: 12px 24px;
+        border-radius: 4px;
+        font-size: 18px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">
+      <p id="para">
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repellat
+        quaerat illo similique, tempora voluptatibus nostrum voluptates
+        laboriosam hic placeat, vitae ipsum corporis deleniti ad recusandae ab?
+        Quia reiciendis magni voluptas quod esse.
+      </p>
+      <input type="button" value="Remove Paragraph" onclick="removePara()" />
+    </div>
+
+    <script>
+      function removePara() {
+        let p = document.getElementById("para");
+        p.style.display = "none";
+      }
+    </script>
+  </body>
+</html>

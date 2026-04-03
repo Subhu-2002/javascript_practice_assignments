@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>List Items</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .container {
+        display: flex;
+        min-height: 120px;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+      .box {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+      }
+    </style>
+  </head>
+  <body onload="loadData()">
+    <div class="container">
+      <div class="box" id="box"></div>
+    </div>
+    <script>
+      function loadData() {
+        let listData = [];
+
+        let box = document.getElementById("box");
+        let input = document.createElement("input");
+        input.setAttribute("id", "inputBox");
+        input.setAttribute("value", "");
+        input.setAttribute("type", "text");
+        input.style.padding = "12px 24px";
+        input.style.borderRadius = "6px";
+
+        let btnBox = document.createElement("div");
+        btnBox.style.display = "flex";
+        btnBox.style.justifyContent = "center";
+        btnBox.style.gap = "12px";
+
+        let addBtn = document.createElement("input");
+        addBtn.setAttribute("type", "button");
+        addBtn.setAttribute("value", "Add");
+        addBtn.style.padding = "12px 24px";
+        addBtn.style.borderRadius = "6px";
+        //btn.setAttribute();
+
+        let removeBtn = document.createElement("input");
+        removeBtn.setAttribute("type", "button");
+        removeBtn.setAttribute("value", "Remove");
+        removeBtn.style.padding = "12px 24px";
+        removeBtn.style.borderRadius = "6px";
+
+        btnBox.appendChild(addBtn);
+        btnBox.appendChild(removeBtn);
+
+        let ul = document.createElement("ul");
+        ul.style.paddingLeft = "32px";
+
+        addBtn.addEventListener("click", function () {
+          if (input.value.length > 0) {
+            let li = document.createElement("li");
+            li.setAttribute("id", input.value);
+            li.innerHTML = input.value;
+            listData.push(input.value);
+            input.value = "";
+            ul.appendChild(li);
+          }
+        });
+
+        removeBtn.addEventListener("click", function () {
+          let text = input.value;
+          if (text.length > 0) {
+            for (let i = 0; i < listData.length; i++) {
+              if (text == listData[i]) {
+                ul.removeChild(document.getElementById(text));
+              }
+            }
+          }
+          input.value = "";
+        });
+
+        box.appendChild(input);
+        box.appendChild(btnBox);
+        box.appendChild(ul);
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,75 @@
+<!-- 
+ WAP to create  one textbox and perform aadhar card validation 
+  -->
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aadhar Validation</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .box {
+        display: flex;
+        gap: 32px;
+        align-items: center;
+        flex-direction: column;
+        justify-content: center;
+      }
+      .box input {
+        padding: 12px 16px;
+        font-size: 18px;
+        margin-right: 12px;
+        border-radius: 4px;
+      }
+      span {
+        text-align: left;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">
+      <h1>Validate Aadhar Number</h1>
+      <div>
+        <input type="text" id="aadharNo" onkeyup="validate(this.value)" />
+        <span id="valid"></span>
+      </div>
+    </div>
+
+    <script>
+      let span = document.getElementById("valid");
+      function validate(number) {
+        isValid = true;
+        if (number.length != 12) {
+          isValid = false;
+        } else {
+          for (let i = 0; i < number.length; i++) {
+            if (number[i] < "0" || number[i] > "9") {
+              isValid = false;
+              break;
+            }
+          }
+        }
+
+        if (isValid) {
+          span.innerHTML = "Valid Aadhar Number";
+          span.style.color = "green";
+        } else {
+          span.innerHTML = "Invalid Aadhar Number";
+          span.style.color = "red";
+        }
+      }
+    </script>
+  </body>
+</html>

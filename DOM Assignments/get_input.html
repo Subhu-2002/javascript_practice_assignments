@@ -1,0 +1,87 @@
+<!-- 
+ 4. Input Value Display
+Description: Show input text in a paragraph.
+Practice: value
+ -->
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>input-text</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+      body {
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .box {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        gap: 42px;
+        justify-content: center;
+      }
+      .input-box {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+      }
+      input {
+        padding: 12px 12px;
+        border-radius: 4px;
+      }
+      p {
+        width: 420px;
+        min-height: 120px;
+        border-radius: 6px;
+        padding: 12px 12px;
+        border: 1px solid #000;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">
+      <div class="input-box">
+        <input type="text" name="" id="textBox" />
+        <input
+          type="button"
+          id="clearText"
+          value="Clear Text"
+          onclick="clearText('textBox')"
+        />
+      </div>
+
+      <div class="btns">
+        <input
+          type="button"
+          id="addText"
+          value="Add Text"
+          onclick="addText()"
+        />
+      </div>
+
+      <p id="para"></p>
+    </div>
+
+    <script>
+      function clearText(id) {
+        let input = document.getElementById(id);
+        input.value = "";
+      }
+      function addText() {
+        let p = document.getElementById("para");
+        let input = document.getElementById("textBox");
+        p.innerHTML = input.value;
+      }
+    </script>
+  </body>
+</html>

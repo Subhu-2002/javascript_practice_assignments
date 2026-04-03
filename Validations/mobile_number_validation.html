@@ -1,0 +1,94 @@
+<!-- 
+ WAP to create one textbox and perform mobile number validation 
+  -->
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mobile Number Validation</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .box {
+        display: flex;
+        flex-direction: column;
+        gap: 32px;
+        align-items: center;
+        justify-content: center;
+      }
+      .box input {
+        padding: 12px 16px;
+        font-size: 18px;
+        border-radius: 4px;
+      }
+      .box .inputDiv {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+      }
+      .box span {
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">
+      <h1>Mobile Number Validation</h1>
+      <div class="inputDiv">
+        <input
+          type="text"
+          id="number"
+          placeholder="Enter Mobile Number"
+          onkeyup="validate(this.value)"
+        />
+        <span id="isValid"></span>
+      </div>
+    </div>
+
+    <script>
+      let span = document.getElementById("isValid");
+      function validate(number) {
+        if (number.length == 0) {
+          span.innerHTML = "";
+          return;
+        }
+
+        let isValid = true;
+        if (number.length != 10) {
+          isValid = false;
+        } else {
+          if (number[0] < "6" || number[0] > "9") {
+            isValid = false;
+          } else {
+            for (let i = 0; i < number.length; i++) {
+              if (number[i] < "0" || number[i] > "9") {
+                isValid = false;
+                break;
+              }
+            }
+          }
+        }
+
+        if (isValid) {
+          span.innerHTML = "Valid Mobile Number";
+          span.style.color = "green";
+        } else {
+          span.innerHTML = "Invalid Mobile Number";
+          span.style.color = "red";
+        }
+      }
+    </script>
+  </body>
+</html>

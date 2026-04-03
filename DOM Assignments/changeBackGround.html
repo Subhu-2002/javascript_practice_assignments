@@ -1,0 +1,59 @@
+<!-- 
+2. Change Background Color
+Description: Change page background color using a button.
+Practice: style 
+-->
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Change Background Color</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        display: flex;
+        height: 100vh;
+        align-items: center;
+        justify-content: center;
+      }
+      .box {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: center;
+        gap: 42px;
+      }
+      .innerBox {
+        width: 172px;
+        height: 172px;
+        border: 2px solid #000;
+        border-radius: 8px;
+      }
+      input {
+        padding: 12px 24px;
+        font-size: 18px;
+        border-radius: 4px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">
+      <div class="innerBox" id="colorBox"></div>
+      <input type="button" value="Fill Color" onclick="fillColor()" />
+    </div>
+
+    <script>
+      function fillColor() {
+        let box = document.getElementById("colorBox");
+        box.style.backgroundColor = "violet";
+        box.style.border = "none";
+      }
+    </script>
+  </body>
+</html>
